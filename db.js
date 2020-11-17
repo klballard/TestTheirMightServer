@@ -14,12 +14,12 @@ sequelize.authenticate().then(
         console.log(err);
     }
 );
-
-//User = sequelize.import('./models/user');
+/*
+User = sequelize.import('./models/user');
 Fighter = sequelize.import('./models/fighter');
 Team = sequelize.import('./models/team');
 
 Fighter.belongsTo(Team);
-                
+*/        
 module.exports = sequelize;
 
