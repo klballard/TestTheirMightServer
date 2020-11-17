@@ -15,8 +15,9 @@ var jwt = require('jsonwebtoken');
 */
 
 // Register a User
-
+console.log('before')
 router.post('/register', function(req,res) {
+    console.log('middle');
     var email = req.body.user.email;
     var pass = req.body.user.password;
     User.create({
@@ -24,7 +25,7 @@ router.post('/register', function(req,res) {
         passwordhash: bcrypt.hashSync(pass, 10)
     }).then(
         function createSuccess(user) {
-
+            console.log('success')
             var token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: 60*60*24});
 
             res.json({
@@ -34,6 +35,7 @@ router.post('/register', function(req,res) {
             });
         },
         function createError(err) {
+            console.log(err)
             res.send(500, err.message);
         }
     );
