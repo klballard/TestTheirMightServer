@@ -1,12 +1,12 @@
 require('dotenv').config();
 var express = require('express');
 var app = express();
-
+var sequelize = require('./db');
 var user = require('./controllers/usercontroller');
 //var fighter = require('./controllers/fightercontroller');
 //var team = require('./controllers/teamcontroller');
 
-var sequelize = require('./db');
+
 sequelize.sync(); 
 
 app.use(express.json());
