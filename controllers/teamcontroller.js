@@ -29,10 +29,13 @@ router.get('/getallteam', function (req, res) {
 //! Save a team
 
 router.post('/saveteam', function(req, res) {
-    var ownerId = req.user.id;
+    teamId = req.body.teamId;
     teamName = req.body.teamName;
-    charName = req.body.charName;
-    charId = re.body.charId;
+    fighterOne = req.body.fighterOne;
+    fighterTwo = req.body.fighterTwo;
+    fighterThree = req.body.fighterThree;
+    fighterFour = req.body.fighterFour;
+    fighterFive = req.body.fighterFive;
     
     TeamModel
         .create({

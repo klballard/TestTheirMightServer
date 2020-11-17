@@ -1,3 +1,5 @@
+const { INTEGER } = require("sequelize");
+
 module.exports = function (sequelize, DataTypes) {
 
 return sequelize.define('fighter', {
@@ -10,6 +12,7 @@ return sequelize.define('fighter', {
     power: DataTypes.INTEGER,
     combat: DataTypes.INTEGER,
     image: DataTypes.STRING,
-    ownerId: DataTypes.INTEGER
+    ownerId: DataTypes.INTEGER,
+    teamId: INTEGER
 });
 };
