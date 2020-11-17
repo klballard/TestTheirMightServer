@@ -1,10 +1,10 @@
-var router = require('express').Router();
-const { Router } = require('express');
+let express = require('express');
+var router = express.Router();
 var sequelize = require('../db');
 var FighterModel = sequelize.import('../models/fighter');
 
 
-//! Get all saved fighters
+// Get all saved fighters
 
 router.get('/getall', function (req, res) {
     var ownerId = req.user.id;
