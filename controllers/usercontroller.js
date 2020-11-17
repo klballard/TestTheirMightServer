@@ -16,11 +16,11 @@ let jwt = require('jsonwebtoken');
 
 // Register a User
 console.log('before')
-router.post('/register', function(req,res) {
+router.post('/register', async function(req,res) {
     console.log('middle');
     let email = req.body.user.email;
     let pass = req.body.user.password;
-    User.create({
+    await User.create({
         email: email,
         passwordhash: bcrypt.hashSync(pass, 10)
     }).then(
