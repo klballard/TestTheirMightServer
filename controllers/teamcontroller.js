@@ -1,7 +1,7 @@
-var router = require('express').Router();
+let router = require('express').Router();
 const { Router } = require('express');
-var sequelize = require('../db');
-var TeamModel = sequelize.import('../models/team');
+let sequelize = require('../db');
+let TeamModel = sequelize.import('../models/team');
 
 
 //! Get all saved teams

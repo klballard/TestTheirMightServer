@@ -1,7 +1,7 @@
 let express = require('express');
-var router = express.Router();
-var sequelize = require('../db');
-var FighterModel = sequelize.import('../models/fighter');
+let router = express.Router();
+let sequelize = require('../db');
+let FighterModel = sequelize.import('../models/fighter');
 
 
 // Get all saved fighters

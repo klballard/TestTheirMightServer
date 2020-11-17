@@ -1,9 +1,9 @@
-var express = require('express')
-var router = express.Router() 
-var sequelize = require('../db');
-var User = sequelize.import('../models/user');
-var bcrypt = require('bcryptjs');
-var jwt = require('jsonwebtoken');
+let express = require('express')
+let router = express.Router() 
+let sequelize = require('../db');
+let User = sequelize.import('../models/user');
+let bcrypt = require('bcryptjs');
+let jwt = require('jsonwebtoken');
 /*
  postman test for user creation
 {
@@ -18,8 +18,8 @@ var jwt = require('jsonwebtoken');
 console.log('before')
 router.post('/register', function(req,res) {
     console.log('middle');
-    var email = req.body.user.email;
-    var pass = req.body.user.password;
+    let email = req.body.user.email;
+    let pass = req.body.user.password;
     User.create({
         email: email,
         passwordhash: bcrypt.hashSync(pass, 10)

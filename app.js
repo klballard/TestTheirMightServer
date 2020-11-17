@@ -1,8 +1,8 @@
 require('dotenv').config();
-var express = require('express');
-var app = express();
-var sequelize = require('./db');
-var user = require('./controllers/usercontroller');
+let express = require('express');
+let app = express();
+let sequelize = require('./db');
+let user = require('./controllers/usercontroller');
 //var fighter = require('./controllers/fightercontroller');
 //var team = require('./controllers/teamcontroller');
 
