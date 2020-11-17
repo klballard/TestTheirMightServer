@@ -7,7 +7,7 @@ var fighter = require('./controllers/fightercontroller');
 var team = require('./controllers/teamcontroller');
 
 var sequelize = require('./db');
-sequelize.sync({force:true}); 
+sequelize.sync(); 
 
 app.use(express.json());
 app.use(require('./middleware/headers')); 
