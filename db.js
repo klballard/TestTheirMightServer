@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
     //host: 'klb-testtheirmight.herokuapp.com',  
-    dialect: 'postgres'
+   // dialect: 'postgres'
 });
 
 sequelize.authenticate().then(
