@@ -38,7 +38,9 @@ router.post('/register', function(req,res) {
             console.log(err)
             res.send(500, err.message);
         }
-    );
+    ).catch((err) => {
+        console.log(err)
+    })
 });
 
 
