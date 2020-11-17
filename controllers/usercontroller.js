@@ -5,7 +5,7 @@ var User = sequelize.import('../models/user');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 /*
-! postman test for user creation
+ postman test for user creation
 {
     "user":{
         "email":"testing@test.com",
@@ -14,7 +14,7 @@ var jwt = require('jsonwebtoken');
 }
 */
 
-//! Register a User
+// Register a User
 
 router.post('/register', function(req,res) {
     var email = req.body.user.email;
@@ -39,9 +39,9 @@ router.post('/register', function(req,res) {
     );
 });
 
-module.exports = router;
 
-//! Login
+
+// Login
   
 router.post('/login', function(req,res) {
                         
@@ -77,3 +77,4 @@ router.post('/login', function(req,res) {
     );
 });
 
+module.exports = router;
