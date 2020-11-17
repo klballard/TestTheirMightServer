@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: "postgres"
 });
-console.log('hi')
+
 sequelize.authenticate().then(
     function() {   
         console.log('Connected to testtheirmight postgres database');
@@ -13,6 +13,7 @@ sequelize.authenticate().then(
         console.log(err);
     }
 );
+console.log('hi')
 /*
 User = sequelize.import('./models/user');
 Fighter = sequelize.import('./models/fighter');
