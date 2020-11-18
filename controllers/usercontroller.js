@@ -13,6 +13,9 @@ let jwt = require('jsonwebtoken');
     }
 }
 */
+router.get('/get', function(req, res) {
+    res.send('hello, from test')
+})
 
 // Register a User
 console.log('before')
