@@ -45,8 +45,8 @@ router.get('/getall', function (req, res) {
 
 router.post('/save', function(req, res) {
     var userId = req.user.id;
-    var charId = req.body.fighter.charId;
-    var charName = req.body.fighter.charName;
+    var fighterId = req.body.fighter.charId;
+    var fighterName = req.body.fighter.charName;
     var int = req.body.fighter.intelligence;
     var str = req.body.fighter.strength;
     var spd = req.body.fighter.speed;
@@ -58,8 +58,8 @@ router.post('/save', function(req, res) {
     FighterModel
         .create({
             userId: userId,
-            charId : charId,
-            charName : charName,
+            fighterId : fighterId,
+            fighterName : fighterName,
             intelligence : int,
             strength : str,
             speed : spd,
