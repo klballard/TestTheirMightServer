@@ -19,13 +19,11 @@ router.get('/get', function(req, res) {
 
 // Register a User
 console.log('before')
-router.post('/register', async function(req,res) {
+router.post('/register', function(req,res) {
     console.log('middle');
-    let email = req.body.user.email;
-    let pass = req.body.user.password;
-    await User.create({
-        email: email,
-        passwordhash: bcrypt.hashSync(pass, 10)
+    User.create({
+        email: req.body.user.email,
+        passwordhash: bcrypt.hashSync(req.body.user.password, 10)
     }).then(
         function createSuccess(user) {
             console.log('success')
