@@ -13,14 +13,13 @@ let jwt = require('jsonwebtoken');
     }
 }
 */
-router.get('/get', function(req, res) {
+router.get('/test', function(req, res) {
     res.send('hello, from test')
 })
 
 // Register a User
-console.log('before')
+
 router.post('/register', function(req,res) {
-    console.log('middle');
     User.create({
         email: req.body.user.email,
         passwordhash: bcrypt.hashSync(req.body.user.password, 10)

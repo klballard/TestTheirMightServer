@@ -19,12 +19,12 @@ sequelize.authenticate().then(
     }
 );
 console.log('hi')
-/*
-User = sequelize.import('./models/user');
+
 Fighter = sequelize.import('./models/fighter');
 Team = sequelize.import('./models/team');
 
 Fighter.belongsTo(Team);
-*/        
+Team.hasMany(Fighter);
+        
 module.exports = sequelize;
 

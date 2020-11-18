@@ -1,19 +1,20 @@
 let router = require('express').Router();
 const { Router } = require('express');
 let sequelize = require('../db');
+const team = require('../models/team');
 let TeamModel = sequelize.import('../models/team');
 
 
 //! Get all saved teams
 
-router.get('/getallteam', function (req, res) {
-    var ownerId = req.user.id;
+router.get('/getall', function (req, res) {
+    var userId = req.user.id;
 
     console.log('Getting all saved teams for the signed in user.')
 
     TeamModel
         .findAll({
-            where: { ownerId: ownerId }
+            where: { userId: userId }
         })
         .then(
             function findAllSuccess(data) {
@@ -29,21 +30,25 @@ router.get('/getallteam', function (req, res) {
 //! Save a team
 
 router.post('/saveteam', function(req, res) {
+    userId = req.body.userId;
     teamId = req.body.teamId;
-    teamName = req.body.teamName;
-    fighterOne = req.body.fighterOne;
-    fighterTwo = req.body.fighterTwo;
-    fighterThree = req.body.fighterThree;
-    fighterFour = req.body.fighterFour;
-    fighterFive = req.body.fighterFive;
+    teamName = req.body.team.teamName;
+    fighterOne = req.body.team.fighterOne;
+    fighterTwo = req.body.team.fighterTwo;
+    fighterThree = req.body.team.fighterThree;
+    fighterFour = req.body.team.fighterFour;
+    fighterFive = req.body.team.fighterFive;
     
     TeamModel
         .create({
-            ownerId: ownerId,
-            teamName: teamName,
-            charName: charName,
-            charId: charId 
-
+            userId : userId,
+            teamId : teamId,
+            teamName : teamName,
+            fighterOne : fighterOne,
+            fightTwo : fighterTwo,
+            fighterThree : fighterThree,
+            fighterFour : fighterFour,
+            fighterFive : fighterFive
         })
         .then(
             function createSuccess(data) {
@@ -61,11 +66,11 @@ router.post('/saveteam', function(req, res) {
    
 router.delete('/deleteteam', function(req, res) {
     var data = req.params.id;
-    var ownerId = req.user.id; 
+    var teamId = req.team.id; 
 
     TeamModel
         .destroy({ 
-            where: { id: data, ownerId: ownerId }
+            where: { id: data, teamId: teamId }
         }).then(
             function deleteLogSuccess(data) { 
                 res.send("You deleted a saved team.");

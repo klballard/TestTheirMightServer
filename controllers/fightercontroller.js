@@ -44,7 +44,7 @@ router.get('/getall', function (req, res) {
 //! Save a fighter
 
 router.post('/save', function(req, res) {
-    var ownerId = req.user.id;
+    var userId = req.user.id;
     var charId = req.body.fighter.charId;
     var charName = req.body.fighter.charName;
     var int = req.body.fighter.intelligence;
@@ -57,7 +57,7 @@ router.post('/save', function(req, res) {
 
     FighterModel
         .create({
-            ownerId: ownerId,
+            userId: userId,
             charId : charId,
             charName : charName,
             intelligence : int,
@@ -84,11 +84,11 @@ router.post('/save', function(req, res) {
    
 router.delete('/delete', function(req, res) {
     var data = req.params.id;
-    var ownerId = req.user.id; 
+    var userId = req.user.id; 
 
     FighterModel
         .destroy({ 
-            where: { id: data, ownerId: ownerId }
+            where: { id: data, userId: userId }
         }).then(
             function deleteLogSuccess(data) { 
                 res.send("You deleted a saved fighter.");
