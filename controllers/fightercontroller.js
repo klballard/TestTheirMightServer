@@ -71,7 +71,7 @@ router.post('/save', function(req, res) {
         .then(
             function createSuccess(data) {
                 res.json({
-                    responseLog: data
+                    fighterLog: data
                 });
             },
             function createError(err) {
@@ -90,10 +90,10 @@ router.delete('/delete', function(req, res) {
         .destroy({ 
             where: { id: data, userId: userId }
         }).then(
-            function deleteLogSuccess(data) { 
+            function deleteFighterSuccess(data) { 
                 res.send("You deleted a saved fighter.");
             },
-            function deleteLogError(err) {
+            function deleteFighterError(err) {
                 res.send(500, err.message);
             }
         );
