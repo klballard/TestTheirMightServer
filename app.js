@@ -7,7 +7,7 @@ let user = require('./controllers/usercontroller');
 //var team = require('./controllers/teamcontroller');
 
 console.log('hello again......')
-sequelize.sync({force:true}); 
+sequelize.sync(); 
 
 app.use(express.json());
 app.use(require('./middleware/headers')); 
