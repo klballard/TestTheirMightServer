@@ -7,13 +7,13 @@ let FighterModel = sequelize.import('../models/fighter');
 // Get all saved fighters
 
 router.get('/getall', function (req, res) {
-    var ownerId = req.user.id;
+    var userId = req.user.id;
 
     console.log('Getting all saved fighters for the signed in user.')
 
     FighterModel
         .findAll({
-            where: { ownerId: ownerId }
+            where: { userId: userId }
         })
         .then(
             function findAllSuccess(data) {
