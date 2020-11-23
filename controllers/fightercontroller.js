@@ -69,9 +69,9 @@ router.post('/save', function(req, res) {
             image: image
         })
         .then(
-            function createSuccess(data) {
+            function createSuccess(fighter) {
                 res.json({
-                    fighterLog: data
+                    fighter: fighter
                 });
             },
             function createError(err) {
