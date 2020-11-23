@@ -45,8 +45,8 @@ router.get('/getall', function (req, res) {
 
 router.post('/save', function(req, res) {
     var userId = req.user.id;
-    var fighterId = req.body.fighter.charId;
-    var fighterName = req.body.fighter.charName;
+    var fighterId = req.body.fighter.fighterId;
+    var fighterName = req.body.fighter.fighterName;
     var int = req.body.fighter.intelligence;
     var str = req.body.fighter.strength;
     var spd = req.body.fighter.speed;
