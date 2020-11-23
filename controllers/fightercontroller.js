@@ -47,12 +47,12 @@ router.post('/save', function(req, res) {
     var userId = req.user.id;
     var fighterId = req.body.fighter.fighterId;
     var fighterName = req.body.fighter.fighterName;
-    var int = req.body.fighter.intelligence;
-    var str = req.body.fighter.strength;
-    var spd = req.body.fighter.speed;
-    var dur = req.body.fighter.durability;
-    var pow = req.body.fighter.power;
-    var com = req.body.fighter.combat;
+    var intelligence = req.body.fighter.intelligence;
+    var strength = req.body.fighter.strength;
+    var speed = req.body.fighter.speed;
+    var durability = req.body.fighter.durability;
+    var power = req.body.fighter.power;
+    var combat = req.body.fighter.combat;
     var image = req.body.fighter.image;
 
     FighterModel
@@ -60,12 +60,12 @@ router.post('/save', function(req, res) {
             userId: userId,
             fighterId : fighterId,
             fighterName : fighterName,
-            intelligence : int,
-            strength : str,
-            speed : spd,
-            durability : dur,
-            power : pow,
-            combat : com,
+            intelligence : intelligence,
+            strength : strength,
+            speed : speed,
+            durability : durability,
+            power : power,
+            combat : combat,
             image: image
         })
         .then(
