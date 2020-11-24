@@ -45,14 +45,14 @@ router.get('/getall', function (req, res) {
 
 router.post('/save', function(req, res) {
     var userId = req.user.id;
-    var fighterName = req.body.fighter.fighterName;
-    var intelligence = req.body.fighter.intelligence;
-    var strength = req.body.fighter.strength;
-    var speed = req.body.fighter.speed;
-    var durability = req.body.fighter.durability;
-    var power = req.body.fighter.power;
-    var combat = req.body.fighter.combat;
-    var image = req.body.fighter.image;
+    var fighterName = req.body.fighterName;
+    var intelligence = req.body.intelligence;
+    var strength = req.body.strength;
+    var speed = req.body.speed;
+    var durability = req.body.fdurability;
+    var power = req.body.power;
+    var combat = req.body.combat;
+    var image = req.body.image;
 
     FighterModel
         .create({
