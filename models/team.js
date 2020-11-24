@@ -1,8 +1,8 @@
 module.exports = function (sequelize, DataTypes) {
 
     return sequelize.define('team', {
-        userId: DataTypes.NUMBER,
-        teamId: DataTypes.NUMBER,
+        userId: DataTypes.INTEGER,
+        teamId: DataTypes.INTEGER,
         teamName: DataTypes.STRING,
         fighterOne: DataTypes.STRING,
         fighterTwo: DataTypes.STRING,
