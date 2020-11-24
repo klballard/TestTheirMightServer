@@ -16,8 +16,9 @@ app.use(cors());
 app.use(require('./middleware/headers')); 
 app.use('/user', user);
 app.use(require('./middleware/validate-session'));
-
+app.options('/fighter', cors());
 app.use('/fighter', fighter);
+app.options('/team', cors());
 app.use('/team', team);
 
 app.listen(process.env.PORT, () => {
