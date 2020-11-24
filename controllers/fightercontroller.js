@@ -49,7 +49,7 @@ router.post('/save', function(req, res) {
     var intelligence = req.body.intelligence;
     var strength = req.body.strength;
     var speed = req.body.speed;
-    var durability = req.body.fdurability;
+    var durability = req.body.durability;
     var power = req.body.power;
     var combat = req.body.combat;
     var image = req.body.image;
