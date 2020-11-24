@@ -7,8 +7,6 @@ let user = require('./controllers/usercontroller');
 let fighter = require('./controllers/fightercontroller');
 let team = require('./controllers/teamcontroller');
 
-
-console.log('hello again.......')
 sequelize.sync(); 
 
 app.use(express.json());
