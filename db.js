@@ -20,8 +20,8 @@ sequelize.authenticate().then(
 );
 console.log('hi')
 
-Fighter = sequelize.import('./models/fighter');
-Team = sequelize.import('./models/team');
+Fighter = require('./models/fighter')(sequelize, Sequelize);
+Team = require('./models/team')(sequelize, Sequelize);
 
 Fighter.belongsTo(Team);
 Team.hasMany(Fighter);
