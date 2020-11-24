@@ -11,7 +11,7 @@ return sequelize.define('fighter', {
     power: DataTypes.INTEGER,
     combat: DataTypes.INTEGER,
     image: DataTypes.STRING,
-    ownerId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
     teamId: INTEGER
 });
 };
