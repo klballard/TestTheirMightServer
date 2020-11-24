@@ -3,8 +3,8 @@ const { INTEGER } = require("sequelize");
 module.exports = function (sequelize, DataTypes) {
 
 return sequelize.define('fighter', {
-    charId: DataTypes.INTEGER,
-    charName: DataTypes.STRING,
+    
+    fighterName: DataTypes.STRING,
     intelligence: DataTypes.INTEGER,
     strength: DataTypes.INTEGER,
     speed: DataTypes.INTEGER,
