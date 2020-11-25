@@ -46,12 +46,13 @@ router.get('/getall', function (req, res) {
 //! Get a single fighter
 
 router.get('/:id', function(req,res) {
-    var data = req.params.id;
+    //var data = req.params.id;
+    var name = req.body.fighterName;
     var userId = req.user.id;
 
     FighterModel
         .findOne({
-            where: { id: data, userId: userId }
+            where: { id: name, userId: userId }
         }).then(
             function findOneSuccess(data) {
                 res.json(data);
