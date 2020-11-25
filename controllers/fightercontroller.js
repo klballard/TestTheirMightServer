@@ -81,7 +81,7 @@ router.post('/save', function(req, res) {
 
 //! Delete a saved fighter
    
-router.delete('/delete', function(req, res) {
+router.delete('/:id', function(req, res) {
     var data = req.params.id;
     var userId = req.user.id; 
 
