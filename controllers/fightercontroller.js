@@ -42,6 +42,26 @@ router.get('/getall', function (req, res) {
     }
 }
 */
+
+//! Get a single fighter
+
+router.get('/:id', function(req,res) {
+    var data = req.params.id;
+    var userId = req.user.id;
+
+    LogTestModel
+        .findOne({
+            where: { id: data, userId: userId }
+        }).then(
+            function findOneSuccess(data) {
+                res.json(data);
+            },
+            function findOneError(err) {
+                res.send(500, err.message);
+            }
+        );
+});
+
 //! Save a fighter
 
 router.post('/save', function(req, res) {
