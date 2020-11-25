@@ -49,7 +49,7 @@ router.get('/:id', function(req,res) {
     var data = req.params.id;
     var userId = req.user.id;
 
-    LogTestModel
+    FighterModel
         .findOne({
             where: { id: data, userId: userId }
         }).then(
