@@ -30,15 +30,15 @@ router.get('/getall', function (req, res) {
 !postman test for fighter POST
 {
     "fighter":{
-        "charId":1000,
-        "charName":"Test Man",
+        "userId":1,
+        "fighterName":"Test Man",
         "intelligence":100,
         "strength":100,
         "speed":100,
         "durability":100,
         "power":100,
         "combat":100,
-        "ownerId":1
+        "image":"https://www.superherodb.com/pictures2/portraits/10/100/1204.jpg"
     }
 }
 */
