@@ -34,22 +34,52 @@ router.post('/saveteam', function(req, res) {
     userId = req.body.userId;
     teamId = req.body.teamId;
     teamName = req.body.team.teamName;
+
     fighterOne = req.body.team.fighterOne;
+    fighterOnePL = req.body.team.fighterOnePL;
+    fighterOneImg = req.body.team.fighterOneImg;
+
     fighterTwo = req.body.team.fighterTwo;
+    fighterTwoPL = req.body.team.fighterTwoPL;
+    fighterTwoImg = req.body.team.fighterTwoImg;
+
     fighterThree = req.body.team.fighterThree;
+    fighterThreePL = req.body.team.fighterThreePL;
+    fighterThreeImg = req.body.team.fighterThreeImg;
+
     fighterFour = req.body.team.fighterFour;
+    fighterFourPL = req.body.team.fighterFourPL;
+    fighterFourImg = req.body.team.fighterFourImg;
+
     fighterFive = req.body.team.fighterFive;
+    fighterFivePL = req.body.team.fighterFivePL;
+    fighterFiveImg = req.body.team.fighterImg;
     
     TeamModel
         .create({
             userId : userId,
             teamId : teamId,
             teamName : teamName,
+
             fighterOne : fighterOne,
-            fightTwo : fighterTwo,
+            fighterOnePL: fighterOnePL,
+            fighterOneImg : fighterOneImg,
+
+            fighterTwo : fighterTwo,
+            fighterTwoPL : fighterTwoPL,
+            fighterTwoImg : fighterTwoImg,
+
             fighterThree : fighterThree,
+            fighterThreePL : fighterThreePL,
+            fighterThreeImg : fighterThreeImg,
+
             fighterFour : fighterFour,
-            fighterFive : fighterFive
+            fighterFourPL : fighterFourPL,
+            fighterFourImg : fighterFourImg,
+
+            fighterFive : fighterFive,
+            fighterFivePL : fighterFivePL,
+            fighterFiveImg : fighterFiveImg
         })
         .then(
             function createSuccess(data) {
