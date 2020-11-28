@@ -26,6 +26,7 @@ Team = require('./models/team')(sequelize, Sequelize);
 Fighter.belongsTo(Team);
 Fighter.hasMany(Team);
 Team.hasMany(Fighter);
+
         
 module.exports = sequelize;
 
