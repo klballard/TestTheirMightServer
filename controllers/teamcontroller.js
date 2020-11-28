@@ -33,27 +33,27 @@ router.get('/getall', function (req, res) {
 router.post('/saveteam', function(req, res) {
     userId = req.body.userId;
     teamId = req.body.teamId;
-    teamName = req.body.team.teamName;
+    teamName = req.body.teamName;
 
-    fighterOne = req.body.team.fighterOne;
-    fighterOnePL = req.body.team.fighterOnePL;
-    fighterOneImg = req.body.team.fighterOneImg;
+    fighterOne = req.body.fighterOne;
+    fighterOnePL = req.body.fighterOnePL;
+    fighterOneImg = req.body.fighterOneImg;
 
-    fighterTwo = req.body.team.fighterTwo;
-    fighterTwoPL = req.body.team.fighterTwoPL;
-    fighterTwoImg = req.body.team.fighterTwoImg;
+    fighterTwo = req.body.fighterTwo;
+    fighterTwoPL = req.body.fighterTwoPL;
+    fighterTwoImg = req.body.fighterTwoImg;
 
-    fighterThree = req.body.team.fighterThree;
-    fighterThreePL = req.body.team.fighterThreePL;
-    fighterThreeImg = req.body.team.fighterThreeImg;
+    fighterThree = req.body.fighterThree;
+    fighterThreePL = req.body.fighterThreePL;
+    fighterThreeImg = req.body.fighterThreeImg;
 
-    fighterFour = req.body.team.fighterFour;
-    fighterFourPL = req.body.team.fighterFourPL;
-    fighterFourImg = req.body.team.fighterFourImg;
+    fighterFour = req.body.fighterFour;
+    fighterFourPL = req.body.fighterFourPL;
+    fighterFourImg = req.body.fighterFourImg;
 
-    fighterFive = req.body.team.fighterFive;
-    fighterFivePL = req.body.team.fighterFivePL;
-    fighterFiveImg = req.body.team.fighterImg;
+    fighterFive = req.body.fighterFive;
+    fighterFivePL = req.body.fighterFivePL;
+    fighterFiveImg = req.body.fighterImg;
     
     TeamModel
         .create({
