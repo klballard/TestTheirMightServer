@@ -53,7 +53,7 @@ router.post('/saveteam', function(req, res) {
 
     fighterFive = req.body.fighterFive;
     fighterFivePL = req.body.fighterFivePL;
-    fighterFiveImg = req.body.fighterImg;
+    fighterFiveImg = req.body.fighterFiveImg;
     
     TeamModel
         .create({
