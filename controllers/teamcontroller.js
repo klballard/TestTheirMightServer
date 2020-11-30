@@ -97,11 +97,11 @@ router.post('/saveteam', function(req, res) {
    
 router.delete('/:id', function(req, res) {
     var data = req.params.id;
-    var teamId = req.team.id; 
+    var userId = req.team.id; 
 
     TeamModel
         .destroy({ 
-            where: { id: data, teamId: teamId }
+            where: { id: data, userId: userId }
         }).then(
             function deleteLogSuccess(data) { 
                 res.send("You deleted a saved team.");
