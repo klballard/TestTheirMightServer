@@ -82,9 +82,9 @@ router.post('/saveteam', function(req, res) {
             fighterFiveImg : fighterFiveImg
         })
         .then(
-            function createSuccess(data) {
+            function createSuccess(team) {
                 res.json({
-                    responseLog: data
+                    team: team
                 });
             },
             function createError(err) {
@@ -112,28 +112,66 @@ router.delete('/:id', function(req, res) {
         );
 });
 
-/*
-! Edit a saved team
 
-router.put('/editteam', function(req, res) {
-    var data = req.params.id;
-//    var owner_id = req.user.id;
-    var definition = req.body.definition;
-    var description = req.body.description;
-    var result = req.body.result;
+//! Edit a saved team
 
-    console.log('hello', req.body)
+router.put('/:id', function(req, res) {
+    userId = req.body.userId;
+    teamId = req.body.teamId;
+    teamName = req.body.teamName;
+
+    fighterOne = req.body.fighterOne;
+    fighterOnePL = req.body.fighterOnePL;
+    fighterOneImg = req.body.fighterOneImg;
+
+    fighterTwo = req.body.fighterTwo;
+    fighterTwoPL = req.body.fighterTwoPL;
+    fighterTwoImg = req.body.fighterTwoImg;
+
+    fighterThree = req.body.fighterThree;
+    fighterThreePL = req.body.fighterThreePL;
+    fighterThreeImg = req.body.fighterThreeImg;
+
+    fighterFour = req.body.fighterFour;
+    fighterFourPL = req.body.fighterFourPL;
+    fighterFourImg = req.body.fighterFourImg;
+
+    fighterFive = req.body.fighterFive;
+    fighterFivePL = req.body.fighterFivePL;
+    fighterFiveImg = req.body.fighterFiveImg;
+
+    
     TeamModel
         .update({
-            description: description,
-            definition: definition,
-            result: result,
+            userId : userId,
+            teamId : teamId,
+            teamName : teamName,
+
+            fighterOne : fighterOne,
+            fighterOnePL: fighterOnePL,
+            fighterOneImg : fighterOneImg,
+
+            fighterTwo : fighterTwo,
+            fighterTwoPL : fighterTwoPL,
+            fighterTwoImg : fighterTwoImg,
+
+            fighterThree : fighterThree,
+            fighterThreePL : fighterThreePL,
+            fighterThreeImg : fighterThreeImg,
+
+            fighterFour : fighterFour,
+            fighterFourPL : fighterFourPL,
+            fighterFourImg : fighterFourImg,
+
+            fighterFive : fighterFive,
+            fighterFivePL : fighterFivePL,
+            fighterFiveImg : fighterFiveImg
         },
         {where: {id: data}}
         ).then(
-            function updateSuccess(updatedLog) { 
+            function updateSuccess(updatedTeam) { 
                 res.json({
-                    data: updatedLog
+                    data: updatedTeam
                 });
             },
             function updateError(err){
@@ -141,7 +179,7 @@ router.put('/editteam', function(req, res) {
             }
         )
 });
-*/
+
 
 
 module.exports = router;
