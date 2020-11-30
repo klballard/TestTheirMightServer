@@ -51,7 +51,7 @@ router.get('/:id', function(req,res) {
     var userId = req.user.id;
 
     FighterModel
-        .findById({
+        .findOne({
             where: { id: data, userId: userId }
         }).then(
             function findOneSuccess(data) {
