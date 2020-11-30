@@ -8,12 +8,12 @@ let TeamModel = require('../models/team')(sequelize, Sequelize);
 //! Get a single team
 
 router.get(':/id', function(req,res) {
-    var data = req.params.id;
-    //var userId = req.user.id;
+    //var data = req.params.id;
+    var userId = req.user.id;
 
     TeamModel
         .findOne({
-            where: { id: data/*, userId: userId*/}
+            where: { /*id: data, */userId: userId}
         }).then(
             function findOneSuccess(data) {
                 res.json(data);
