@@ -95,7 +95,7 @@ router.post('/saveteam', function(req, res) {
 
 //! Delete a saved team
    
-router.delete('/deleteteam', function(req, res) {
+router.delete('/:id', function(req, res) {
     var data = req.params.id;
     var teamId = req.team.id; 
 
