@@ -117,9 +117,10 @@ router.delete('/:id', function(req, res) {
 
 router.put('/:id', function(req, res) {
     userId = req.body.userId;
-    teamId = req.body.teamId;
+    data = req.params.id;
+    //teamId = req.body.teamId;
     teamName = req.body.teamName;
-
+    /*
     fighterOne = req.body.fighterOne;
     fighterOnePL = req.body.fighterOnePL;
     fighterOneImg = req.body.fighterOneImg;
@@ -139,14 +140,14 @@ router.put('/:id', function(req, res) {
     fighterFive = req.body.fighterFive;
     fighterFivePL = req.body.fighterFivePL;
     fighterFiveImg = req.body.fighterFiveImg;
-
+    */
     
     TeamModel
         .update({
-            userId : userId,
-            teamId : teamId,
+            //userId : userId,
+            //teamId : teamId,
             teamName : teamName,
-
+            /*
             fighterOne : fighterOne,
             fighterOnePL: fighterOnePL,
             fighterOneImg : fighterOneImg,
@@ -166,6 +167,7 @@ router.put('/:id', function(req, res) {
             fighterFive : fighterFive,
             fighterFivePL : fighterFivePL,
             fighterFiveImg : fighterFiveImg
+            */
         },
         {where: {id: data}}
         ).then(
