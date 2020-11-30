@@ -49,7 +49,7 @@ router.get('/getall', function (req, res) {
 //! Save a team
 
 router.post('/saveteam', function(req, res) {
-    userId = req.body.userId;
+    userId = req.user.id;
     teamId = req.body.teamId;
     teamName = req.body.teamName;
 
