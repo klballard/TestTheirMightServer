@@ -119,7 +119,7 @@ router.get(':/id', function(req,res) {
     //var userId = req.user.id;
 
     TeamModel
-        .findOne({
+        .findById({
             where: {id: data}
         }).then(
             function findOneSuccess(data) {
