@@ -97,7 +97,7 @@ router.post('/saveteam', function(req, res) {
    
 router.delete('/:id', function(req, res) {
     var data = req.params.id;
-    var userId = req.team.id; 
+    var userId = req.user.id; 
 
     TeamModel
         .destroy({ 
