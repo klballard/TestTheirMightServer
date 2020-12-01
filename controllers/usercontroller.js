@@ -21,13 +21,15 @@ router.get('/test', function(req, res) {
 //Find All Users
 router.get("/getall", (res) => {
     User.findAll()
-    .then(function createSuccess(data){
-        res.status(200).json({
-            message: "Users found.",
-            data: data
-        })
-    }).catch(err => res.status(500).json('Users not found', err))
-})
+    .then(function findAllSuccess(data){
+        res.json(data);
+    },
+    function findAllError(err){
+        res.send(500,err.message);
+    }
+    );
+    
+});
 
 //! Register a User
 
