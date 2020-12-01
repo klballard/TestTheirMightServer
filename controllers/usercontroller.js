@@ -19,7 +19,7 @@ router.get('/test', function(req, res) {
 })
 
 //Find All Users
-router.get('/getall', (req,res) => {
+router.get("/getall", (req,res) => {
     User.findAll({ where: {id: req.user.id} })
     .then(function createSuccess(data){
         res.status(200).json({
