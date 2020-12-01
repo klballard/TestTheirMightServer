@@ -19,13 +19,13 @@ router.get('/test', function(req, res) {
 })
 
 //Find All Users
-router.get("/getall", (res) => {
+router.get("/getall", (req, res) => {
     User.findAll()
     .then(function findAllSuccess(data){
-        res.json(data);
+        response.json(data);
     },
     function findAllError(err){
-        res.send(500,err.message);
+        response.send(500,err.message);
     }
     );
     
