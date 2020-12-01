@@ -48,38 +48,32 @@ router.post('/register', function(req,res) {
 
 // Login
   
-router.post('/login', function(req,res) {
-                        
-    User.findOne( {where: { username: req.body.user.email } } ).then(
-
-         
+router.post('/login', function(req, res) {
+    User.findOne({ where: {email: req.body.user.email} })
+    .then(
         function(user) {
-            
             if (user) {
-
                 bcrypt.compare(req.body.user.password, user.passwordhash, function (err, matches) {
-
-                
-                if (matches) {
-                
-                 var token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: 60*60*24});
-                 res.json({
-                     user: user,
-                     message: "User has been successfully logged in!",
-                     sessionToken: token
-                 });
-                }else {
-                    res.status(502).send({ error: "Failed to authenticate."});
-                }
-                })
-            } else { 
-                res.status(500).send({ error: "Failed to authenticate." });  
+                    if (matches) {
+                        let token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: 60*60*24 });
+                        res.json({
+                            user: user,
+                            message: "User has been successfully authenticated",
+                            sessionToken: token
+                        });
+                    } else {
+                        res.status(502).send({ error: "User sign in failed." });
+                    }
+                });
+            } else {
+                res.status(500).send({ error: "Authentication failed." });
             }
         },
-        function(err) {
-            res.status(501).send({ error: "Password did not match."}); 
+        function (err) {
+            res.status(501).send({ error: "User sign in failed." })
         }
     );
 });
+
 
 module.exports = router;
