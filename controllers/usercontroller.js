@@ -21,16 +21,12 @@ router.get('/test', function(req, res) {
 //Find All Users
 router.get("/getall", (res) => {
     User.findAll()
-    .then(userResponse => {
-        res.status(200).json(userResponse)
-    })
-    /*
     .then(function createSuccess(data){
         res.status(200).json({
             message: "Users found.",
             data: data
         })
-    }).catch(err => res.status(500).json('Users not found', err))*/
+    }).catch(err => res.status(500).json('Users not found', err))
 })
 
 //! Register a User
