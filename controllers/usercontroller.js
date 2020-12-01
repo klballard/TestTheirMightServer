@@ -18,6 +18,18 @@ router.get('/test', function(req, res) {
     res.send('hello, from test')
 })
 
+//Find All Users
+router.get('/getall', (req,res) => {
+    User.findAll({
+        where: {userId: req.user.id}
+    }).then(function createSuccess(data){
+        res.status(200).json({
+            message: "Users found.",
+            data: data
+        })
+    }).catch(err => res.status(500).json('Users not found', err))
+})
+
 // Register a User
 
 router.post('/register', function(req,res) {
