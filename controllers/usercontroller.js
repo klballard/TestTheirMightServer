@@ -1,8 +1,9 @@
 let express = require('express')
 let router = express.Router() 
-let sequelize = require('../db');
-const Sequelize = require('sequelize');
-let User = require('../models/user')(sequelize, Sequelize);
+//let sequelize = require('../db');
+//const Sequelize = require('sequelize');
+const db = require('../models/index');
+let User = db['users'];
 let bcrypt = require('bcryptjs');
 let jwt = require('jsonwebtoken');
 /*
@@ -20,13 +21,17 @@ router.get('/test', function(req, res) {
 
 //Find All Users
 router.get("/getall", (req,res) => {
-    User.findAll({ where: {id: req.user.id} })
+    User.findAll()
+    .then(userResponse => {
+        res.status(200).json(userResponse)
+    })
+    /*
     .then(function createSuccess(data){
         res.status(200).json({
             message: "Users found.",
             data: data
         })
-    }).catch(err => res.status(500).json('Users not found', err))
+    }).catch(err => res.status(500).json('Users not found', err))*/
 })
 
 // Register a User
