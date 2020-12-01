@@ -124,7 +124,8 @@ router.get(':/id', function(req,res) {
             where: {id: data, userId: userId}
         }).then(
             function findOneSuccess(data) {
-                res.json(data);
+                res.text(data);
+                console.log(data);
             },
             function findOneError(err) {
                 res.send(500, err.message);
