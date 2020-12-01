@@ -33,7 +33,7 @@ router.get("/getall", (res) => {
     }).catch(err => res.status(500).json('Users not found', err))*/
 })
 
-// Register a User
+//! Register a User
 
 router.post('/register', function(req,res) {
     User.create({
