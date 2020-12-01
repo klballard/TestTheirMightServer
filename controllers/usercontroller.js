@@ -1,9 +1,8 @@
 let express = require('express')
 let router = express.Router() 
-//let sequelize = require('../db');
-//const Sequelize = require('sequelize');
-const db = require('../models/index');
-let User = db['users'];
+let sequelize = require('../db');
+const Sequelize = require('sequelize');
+let User = require('../models/user')(sequelize, Sequelize);
 let bcrypt = require('bcryptjs');
 let jwt = require('jsonwebtoken');
 /*
@@ -20,7 +19,7 @@ router.get('/test', function(req, res) {
 })
 
 //Find All Users
-router.get("/getall", (req,res) => {
+router.get("/getall", (res) => {
     User.findAll()
     .then(userResponse => {
         res.status(200).json(userResponse)
