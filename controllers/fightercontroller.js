@@ -119,28 +119,23 @@ router.delete('/:id', function(req, res) {
         );
 });
 
-/*
-! Edit a saved fighter (admin feature)
 
-router.put('/', function(req, res) {
+//! Edit a saved fighter
+
+router.put('/:id', function(req, res) {
     var data = req.params.id;
-//    var owner_id = req.user.id;
-    var definition = req.body.definition;
-    var description = req.body.description;
-    var result = req.body.result;
-
-    console.log('hello', req.body)
+    var userId = req.user.id;
+    var fighterName = req.body.fighterName
+    
     FighterModel
         .update({
-            description: description,
-            definition: definition,
-            result: result,
+            fighterName : fighterName
         },
         {where: {id: data}}
         ).then(
-            function updateSuccess(updatedLog) { 
+            function updateSuccess(updatedFighter) { 
                 res.json({
-                    data: updatedLog
+                    data: updatedFighter
                 });
             },
             function updateError(err){
@@ -148,7 +143,7 @@ router.put('/', function(req, res) {
             }
         )
 });
-*/
+
 
 
 module.exports = router;
