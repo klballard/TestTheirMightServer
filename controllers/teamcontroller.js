@@ -20,6 +20,7 @@ router.get('/getall', function (req, res) {
         .then(
             function findAllSuccess(data) {
                 res.json(data);
+                console.log(data);
             },
             function findAllError(err) {
                 res.send(500, err.message);
