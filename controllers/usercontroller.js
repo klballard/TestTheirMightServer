@@ -22,10 +22,10 @@ router.get('/test', function(req, res) {
 router.get("/getall", (req, res) => {
     User.findAll()
     .then(function findAllSuccess(data){
-        response.json(data);
+        res.json(data);
     },
     function findAllError(err){
-        response.send(500,err.message);
+        res.send(500,err.message);
     }
     );
     
