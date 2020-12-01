@@ -20,7 +20,7 @@ router.get('/test', function(req, res) {
 
 //Find All Users
 router.get('/getall', (req,res) => {
-    User.findAll({ where: {email: req.body.user.email} })
+    User.findAll({ where: {id: req.user.id} })
     .then(function createSuccess(data){
         res.status(200).json({
             message: "Users found.",
