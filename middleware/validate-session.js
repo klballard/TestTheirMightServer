@@ -12,7 +12,7 @@ const validateSession = (req, res, next) => {
     const token = req.headers.authorization;
     console.log(req.headers)
     jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
-        // console.log(`INVALID TOKEN: ${decodedToken}`)
+         console.log(`INVALID TOKEN: ${decodedToken}`)
         if (!err && decodedToken) {
             UserModel.findOne({ where: {id: decodedToken.id}})
             .then(user => {
