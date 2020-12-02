@@ -5,8 +5,7 @@ const Sequelize = require('sequelize');
 let User = require('../models/user')(sequelize, Sequelize);
 let bcrypt = require('bcryptjs');
 let jwt = require('jsonwebtoken');
-let Role = require('../models/role');
-let authorize = require('../middleware/authorize');
+
 /*
  postman test for user creation
 {
@@ -21,7 +20,7 @@ router.get('/test', function(req, res) {
 })
 
 //Find All Users
-router.get("/getall", authorize(Role.Admin), (req, res) => {
+router.get("/getall", (req, res) => {
     User.findAll()
     .then(function findAllSuccess(data){
         res.json(data);
@@ -39,7 +38,6 @@ router.post('/register', function(req,res) {
     User.create({
         email: req.body.user.email,
         passwordhash: bcrypt.hashSync(req.body.user.password, 10),
-        role: Role.user
     }).then(
         function createSuccess(user) {
             console.log('success')
