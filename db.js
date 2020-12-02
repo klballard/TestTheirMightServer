@@ -19,10 +19,11 @@ sequelize.authenticate().then(
     }
 );
 console.log('hi')
-
+User = require('./models/user')(sequelize, Sequelize);
 Fighter = require('./models/fighter')(sequelize, Sequelize);
 Team = require('./models/team')(sequelize, Sequelize);
-
+User.hasMany(Team);
+User.hasMany(Fighter);
 Fighter.belongsTo(Team);
 Fighter.hasMany(Team);
 Team.hasMany(Fighter);
