@@ -1,9 +1,12 @@
-let express = require('express');
-let router = express.Router();
+
+const { Router } = require('express');
+//let express = require('express');
+//let router = express.Router();
 let sequelize = require('../db');
 const Sequelize = require('sequelize');
-let FighterModel = require('../models/fighter')(sequelize, Sequelize);
+let FighterModel = require('../models/fighter')
 
+const router = Router();
 
 // Get all saved fighters
 

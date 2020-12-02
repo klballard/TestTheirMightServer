@@ -1,8 +1,7 @@
-let express = require('express')
-let router = express.Router() 
-let sequelize = require('../db');
-const Sequelize = require('sequelize');
-let User = require('../models/user')(sequelize, Sequelize);
+let {Router} = require('express');
+//let sequelize = require('../db');
+//const Sequelize = require('sequelize');
+let User = require('../models/user')
 let bcrypt = require('bcryptjs');
 let jwt = require('jsonwebtoken');
 
@@ -15,6 +14,7 @@ let jwt = require('jsonwebtoken');
     }
 }
 */
+const router = Router();
 router.get('/test', function(req, res) {
     res.send('hello, from test')
 })

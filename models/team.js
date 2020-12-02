@@ -1,6 +1,7 @@
-module.exports = function (sequelize, DataTypes) {
+const DataTypes = require('sequelize');
+const sequelize = require('../db');
 
-    return sequelize.define('team', {
+const TeamModel = sequelize.define('team', {
         userId: DataTypes.INTEGER,
         teamId: DataTypes.INTEGER,
         teamName: DataTypes.STRING,
@@ -24,5 +25,6 @@ module.exports = function (sequelize, DataTypes) {
         fighterFive: DataTypes.STRING,
         fighterFivePL: DataTypes.INTEGER,
         fighterFiveImg: DataTypes.STRING
-    });
-    };
+});
+
+module.exports = TeamModel;

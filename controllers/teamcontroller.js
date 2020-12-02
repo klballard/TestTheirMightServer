@@ -1,10 +1,11 @@
-let sequelize = require('../db');
-const Sequelize = require('sequelize');
-let router = require('express').Router();
+//let sequelize = require('../db');
+//const Sequelize = require('sequelize');
+//let router = require('express').Router();
 const { Router } = require('express');
-let TeamModel = require('../models/team')(sequelize, Sequelize);
+let TeamModel = require('../models/team');
 
 
+const router = Router();
 //! Get all saved teams
 
 router.get('/getall', function (req, res) {
