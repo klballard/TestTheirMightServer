@@ -6,17 +6,18 @@ let sequelize = require('./db');
 let user = require('./controllers/usercontroller');
 let fighter = require('./controllers/fightercontroller');
 let team = require('./controllers/teamcontroller');
-
+const corsmiddleware = require('./middleware/headers');
+const validateSession = require('./middleware/validate-session');
 
 app.use(express.json());
 //app.use(cors());
-app.use(require('./middleware/headers')); 
+app.use(corsmiddleware); 
 app.use('/user', user);
-app.use(require('./middleware/validate-session'));
+app.use(validateSession);
 //app.options('/fighter', cors());
-app.use('/fighter', fighter);
+app.use('/fighter', validateSession, fighter);
 //app.options('/team', cors());
-app.use('/team', team);
+app.use('/team', validateSession, team);
 
 
 sequelize.authenticate()
