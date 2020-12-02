@@ -116,11 +116,11 @@ router.delete('/:id', function(req, res) {
 //! Get a single team
 
 router.get('/28', function(req,res) {
-    var data = req.params.id;
+    //var data = req.params.id;
     var userId = req.user.id;
 
     TeamModel.findOne({
-            where: {id: data, userId: userId}
+            where: {/*id: data, */userId: userId}
         }).then(
             function findOneSuccess(data) {
                 res.json(data);
