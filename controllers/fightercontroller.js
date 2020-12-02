@@ -70,14 +70,14 @@ router.get('/:id', function(req,res) {
 
 router.post('/save', function(req, res) {
     var userId = req.user.id;
-    var fighterName = req.body.fighterName;
-    var intelligence = req.body.intelligence;
-    var strength = req.body.strength;
-    var speed = req.body.speed;
-    var durability = req.body.durability;
-    var power = req.body.power;
-    var combat = req.body.combat;
-    var image = req.body.image;
+    var fighterName = req.body.fighter.fighterName;
+    var intelligence = req.body.fighter.intelligence;
+    var strength = req.body.fighter.strength;
+    var speed = req.body.fighter.speed;
+    var durability = req.body.fighter.durability;
+    var power = req.body.fighter.power;
+    var combat = req.body.fighter.combat;
+    var image = req.body.fighter.image;
 
     FighterModel
         .create({
@@ -128,7 +128,7 @@ router.delete('/:id', function(req, res) {
 router.put('/:id', function(req, res) {
     var data = req.params.id;
     var userId = req.user.id;
-    var fighterName = req.body.fighterName
+    var fighterName = req.body.fighter.fighterName
     
     FighterModel
         .update({

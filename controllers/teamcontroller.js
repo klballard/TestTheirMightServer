@@ -33,7 +33,6 @@ router.get('/getall', function (req, res) {
 
 router.post('/saveteam', function(req, res) {
     userId = req.user.id;
-    teamId = req.body.teamId;
     teamName = req.body.teamName;
 
     fighterOne = req.body.fighterOne;
@@ -59,7 +58,6 @@ router.post('/saveteam', function(req, res) {
     TeamModel
         .create({
             userId : userId,
-            teamId : teamId,
             teamName : teamName,
 
             fighterOne : fighterOne,

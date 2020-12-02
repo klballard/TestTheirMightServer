@@ -2,7 +2,7 @@ const UserModel = require('./user');
 const FighterModel = require('./fighter');
 const TeamModel = require('./team');
 
-
+//
 UserModel.hasMany(TeamModel);
 TeamModel.belongsTo(UserModel);
 UserModel.hasMany(FighterModel);
