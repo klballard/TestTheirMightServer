@@ -4,7 +4,7 @@ const { Router } = require('express');
 //let router = express.Router();
 let sequelize = require('../db');
 const Sequelize = require('sequelize');
-let FighterModel = require('../models/fighter')
+const {FighterModel} = require('../models');
 
 const router = Router();
 

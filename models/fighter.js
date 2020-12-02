@@ -1,4 +1,4 @@
-const DataTypes = require('sequelize');
+const {DataTypes} = require('sequelize');
 const sequelize = require('../db');
 
 const FighterModel = sequelize.define('fighter', {
@@ -10,7 +10,7 @@ const FighterModel = sequelize.define('fighter', {
     power: DataTypes.INTEGER,
     combat: DataTypes.INTEGER,
     image: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    
 });
 
 module.exports = FighterModel;

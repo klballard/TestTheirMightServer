@@ -1,9 +1,8 @@
-const DataTypes = require('sequelize');
+const {DataTypes} = require('sequelize');
 const sequelize = require('../db');
 
 const TeamModel = sequelize.define('team', {
-        userId: DataTypes.INTEGER,
-        teamId: DataTypes.INTEGER,
+        
         teamName: DataTypes.STRING,
 
         fighterOne: DataTypes.STRING,

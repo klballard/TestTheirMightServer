@@ -10,23 +10,6 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: "postgres"
 });
 */
-sequelize.authenticate().then(
-    function() {   
-        console.log('Connected to testtheirmight postgres database');
-    },
-    function(err){ 
-        console.log(err);
-    }
-);
-console.log('hi')
-User = require('./models/user')(sequelize, Sequelize);
-Fighter = require('./models/fighter')(sequelize, Sequelize);
-Team = require('./models/team')(sequelize, Sequelize);
-User.hasMany(Team);
-User.hasMany(Fighter);
-Fighter.belongsTo(Team);
-Fighter.hasMany(Team);
-Team.hasMany(Fighter);
 
         
 module.exports = sequelize;

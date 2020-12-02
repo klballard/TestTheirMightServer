@@ -2,7 +2,7 @@
 //const Sequelize = require('sequelize');
 //let router = require('express').Router();
 const { Router } = require('express');
-let TeamModel = require('../models/team');
+const {TeamModel} = require('../models');
 
 
 const router = Router();

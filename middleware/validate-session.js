@@ -1,7 +1,7 @@
 var jwt = require('jsonwebtoken');
 var sequelize = require('../db');
 const Sequelize = require('sequelize');
-var User = require('../models/user')(sequelize, Sequelize);
+var {UserModel} = require('../models');
 
 const validateSession = (req, res, next) => { 
     const token = req.headers.authorization;
@@ -9,7 +9,7 @@ const validateSession = (req, res, next) => {
     jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
         // console.log(`INVALID TOKEN: ${decodedToken}`)
         if (!err && decodedToken) {
-            User.findOne({ where: {id: decodedToken.id}})
+            UserModel.findOne({ where: {id: decodedToken.id}})
             .then(user => {
                 if (!user) throw 'err';
                 req.user = user;

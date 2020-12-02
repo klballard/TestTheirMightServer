@@ -1,7 +1,7 @@
 let {Router} = require('express');
 //let sequelize = require('../db');
 //const Sequelize = require('sequelize');
-let User = require('../models/user')
+const {UserModel} = require('../models');
 let bcrypt = require('bcryptjs');
 let jwt = require('jsonwebtoken');
 
@@ -21,7 +21,7 @@ router.get('/test', function(req, res) {
 
 //Find All Users
 router.get("/getall", (req, res) => {
-    User.findAll()
+    UserModel.findAll()
     .then(function findAllSuccess(data){
         res.json(data);
     },
@@ -35,7 +35,7 @@ router.get("/getall", (req, res) => {
 //! Register a User
 
 router.post('/register', function(req,res) {
-    User.create({
+    UserModel.create({
         email: req.body.user.email,
         passwordhash: bcrypt.hashSync(req.body.user.password, 10),
     }).then(
@@ -63,7 +63,7 @@ router.post('/register', function(req,res) {
 // Login
   
 router.post('/login', function(req, res) {
-    User.findOne({ where: {email: req.body.user.email} })
+    UserModel.findOne({ where: {email: req.body.user.email} })
     .then(
         function(user) {
             if (user) {
