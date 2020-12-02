@@ -36,7 +36,8 @@ router.get("/getall", (req, res) => {
 router.post('/register', function(req,res) {
     User.create({
         email: req.body.user.email,
-        passwordhash: bcrypt.hashSync(req.body.user.password, 10)
+        passwordhash: bcrypt.hashSync(req.body.user.password, 10),
+        isAdmin: false
     }).then(
         function createSuccess(user) {
             console.log('success')
