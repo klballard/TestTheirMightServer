@@ -13,11 +13,11 @@ app.use(express.json());
 //app.use(cors());
 app.use(corsmiddleware); 
 app.use('/user', user);
-app.use(validateSession);
+//app.use(validateSession);
 //app.options('/fighter', cors());
-app.use('/fighter', validateSession, fighter);
+app.use('/fighter', fighter);
 //app.options('/team', cors());
-app.use('/team', validateSession, team);
+app.use('/team', team);
 
 
 sequelize.authenticate()
