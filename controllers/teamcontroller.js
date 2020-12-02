@@ -115,7 +115,7 @@ router.delete('/:id', function(req, res) {
 
 //! Get a single team
 
-router.get(':/id', function(req,res) {
+router.get('/28', function(req,res) {
     var data = req.params.id;
     var userId = req.user.id;
 
