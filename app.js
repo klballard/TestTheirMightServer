@@ -17,7 +17,7 @@ app.use('/user', user);
 //app.options('/fighter', cors());
 app.use('/fighter', fighter);
 //app.options('/team', cors());
-app.use('/team', team);
+//app.use('/team', team);
 
 
 sequelize.authenticate()

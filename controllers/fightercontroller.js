@@ -11,7 +11,7 @@ const router = Router();
 // Get all saved fighters
 
 router.get('/getall', function (req, res) {
-    var userId = req.user.id;
+    let userId = req.user.id;
 
     console.log('Getting all saved fighters for the signed in user.')
 
@@ -49,9 +49,9 @@ router.get('/getall', function (req, res) {
 //! Get a single fighter
 
 router.get('/:id', function(req,res) {
-    var data = req.params.id;
+    let data = req.params.id;
     //var name = req.body.fighterName;
-    var userId = req.user.id;
+    let userId = req.user.id;
 
     FighterModel
         .findOne({
@@ -69,15 +69,15 @@ router.get('/:id', function(req,res) {
 //! Save a fighter
 
 router.post('/save', function(req, res) {
-    var userId = req.user.id;
-    var fighterName = req.body.fighter.fighterName;
-    var intelligence = req.body.fighter.intelligence;
-    var strength = req.body.fighter.strength;
-    var speed = req.body.fighter.speed;
-    var durability = req.body.fighter.durability;
-    var power = req.body.fighter.power;
-    var combat = req.body.fighter.combat;
-    var image = req.body.fighter.image;
+    let userId = req.user.id;
+    let fighterName = req.body.fighter.fighterName;
+    let intelligence = req.body.fighter.intelligence;
+    let strength = req.body.fighter.strength;
+    let speed = req.body.fighter.speed;
+    let durability = req.body.fighter.durability;
+    let power = req.body.fighter.power;
+    let combat = req.body.fighter.combat;
+    let image = req.body.fighter.image;
 
     FighterModel
         .create({
@@ -107,8 +107,8 @@ router.post('/save', function(req, res) {
 //! Delete a saved fighter
    
 router.delete('/:id', function(req, res) {
-    var data = req.params.id;
-    var userId = req.user.id; 
+    let data = req.params.id;
+    let userId = req.user.id; 
 
     FighterModel
         .destroy({ 
@@ -127,9 +127,9 @@ router.delete('/:id', function(req, res) {
 //! Edit a saved fighter
 
 router.put('/:id', function(req, res) {
-    var data = req.params.id;
-    var userId = req.user.id;
-    var fighterName = req.body.fighter.fighterName
+    let data = req.params.id;
+    let userId = req.user.id;
+    let fighterName = req.body.fighter.fighterName
     
     FighterModel
         .update({

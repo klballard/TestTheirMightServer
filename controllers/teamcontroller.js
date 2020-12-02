@@ -9,7 +9,7 @@ const router = Router();
 //! Get all saved teams
 
 router.get('/getall', function (req, res) {
-    var userId = req.user.id;
+    let userId = req.user.id;
 
     console.log('Getting all saved teams for the signed in user.')
 
@@ -95,8 +95,8 @@ router.post('/saveteam', function(req, res) {
 //! Delete a saved team
    
 router.delete('/:id', function(req, res) {
-    var data = req.params.id;
-    var userId = req.user.id; 
+    let data = req.params.id;
+    let userId = req.user.id; 
 
     TeamModel
         .destroy({ 
