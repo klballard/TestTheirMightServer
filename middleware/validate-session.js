@@ -3,7 +3,12 @@ var sequelize = require('../db');
 const Sequelize = require('sequelize');
 var {UserModel} = require('../models');
 
+
+
 const validateSession = (req, res, next) => { 
+    if(req.method === 'OPTIONS'){
+        return next();
+    } else{
     const token = req.headers.authorization;
     console.log(req.headers)
     jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
@@ -20,7 +25,7 @@ const validateSession = (req, res, next) => {
             req.errors = err;
             res.status(401).send("This is a bad token")
         }
-    })
+    })}
 };
 
 module.exports = validateSession;
