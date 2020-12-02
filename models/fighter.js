@@ -3,12 +3,12 @@ const sequelize = require('../db');
 
 const FighterModel = sequelize.define('fighter', {
     fighterName: DataTypes.STRING,
-    intelligence: DataTypes.INTEGER,
-    strength: DataTypes.INTEGER,
-    speed: DataTypes.INTEGER,
-    durability: DataTypes.INTEGER,
-    power: DataTypes.INTEGER,
-    combat: DataTypes.INTEGER,
+    intelligence: DataTypes.STRING,
+    strength: DataTypes.STRING,
+    speed: DataTypes.STRING,
+    durability: DataTypes.STRING,
+    power: DataTypes.STRING,
+    combat: DataTypes.STRING,
     image: DataTypes.STRING,
     
 });

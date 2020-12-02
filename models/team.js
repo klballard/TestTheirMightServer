@@ -6,23 +6,23 @@ const TeamModel = sequelize.define('team', {
         teamName: DataTypes.STRING,
 
         fighterOne: DataTypes.STRING,
-        fighterOnePL: DataTypes.INTEGER,
+        fighterOnePL: DataTypes.STRING,
         fighterOneImg: DataTypes.STRING,
 
         fighterTwo: DataTypes.STRING,
-        fighterTwoPL: DataTypes.INTEGER,
+        fighterTwoPL: DataTypes.STRING,
         fighterTwoImg: DataTypes.STRING,
 
         fighterThree: DataTypes.STRING,
-        fighterThreePL: DataTypes.INTEGER,
+        fighterThreePL: DataTypes.STRING,
         fighterThreeImg: DataTypes.STRING,
 
         fighterFour: DataTypes.STRING,
-        fighterFourPL: DataTypes.INTEGER,
+        fighterFourPL: DataTypes.STRING,
         fighterFourImg: DataTypes.STRING,
 
         fighterFive: DataTypes.STRING,
-        fighterFivePL: DataTypes.INTEGER,
+        fighterFivePL: DataTypes.STRING,
         fighterFiveImg: DataTypes.STRING
 });
 
