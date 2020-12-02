@@ -20,7 +20,7 @@ app.use('/team', team);
 
 
 sequelize.authenticate()
-.then(() => sequelize.sync({force:true}))
+.then(() => sequelize.sync())
 .then(() => {
     app.listen(process.env.PORT, () => {
         console.log(`Server is listening on port ${process.env.PORT}`)
