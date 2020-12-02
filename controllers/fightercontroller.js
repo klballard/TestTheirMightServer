@@ -98,6 +98,7 @@ router.post('/save', function(req, res) {
                 });
             },
             function createError(err) {
+                console.log(err, 'right HERE')
                 res.send(500, err.message);
             }
         );
