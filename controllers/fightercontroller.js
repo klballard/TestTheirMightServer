@@ -69,6 +69,7 @@ router.get('/:id', function(req,res) {
 //! Save a fighter
 
 router.post('/save', function(req, res) {
+    console.log(req.user);
     let userId = req.user.id;
     let fighterName = req.body.fighter.fighterName;
     let intelligence = req.body.fighter.intelligence;
