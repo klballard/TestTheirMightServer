@@ -7,7 +7,7 @@ let user = require('./controllers/usercontroller');
 let fighter = require('./controllers/fightercontroller');
 let team = require('./controllers/teamcontroller');
 
-sequelize.sync(); 
+sequelize.sync({force:true}); 
 
 app.use(express.json());
 app.use(cors());
