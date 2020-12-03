@@ -33,11 +33,11 @@ router.get("/getall", (req, res) => {
 
 //! Delete a User
 router.delete('/:id', function(req,res){
-    var userId = req.user.id;
+    var data = req.params.id
 
     UserModel
         .destroy({
-            where: {userId:userId}
+            where: {id:data}
         }).then(
             function deleteUserSuccess(data){
                 res.send('You deleted a user.')
