@@ -18,7 +18,7 @@ router.get('/test', function(req, res) {
     res.send('hello, from test')
 })
 
-//Find All Users
+//!Find All Users
 router.get("/getall", (req, res) => {
     User.findAll()
     .then(function findAllSuccess(data){
@@ -29,6 +29,23 @@ router.get("/getall", (req, res) => {
     }
     );
     
+});
+
+//! Delete a User
+router.delete('/:id', function(req,res){
+    var userId = req.user.id;
+
+    UserModel
+        .destroy({
+            where: {userId:userId}
+        }).then(
+            function deleteUserSuccess(data){
+                res.send('You deleted a user.')
+            },
+            function deleteUserFail(err){
+                res.send(500, err.message);
+            }
+        );
 });
 
 //! Register a User
