@@ -13,7 +13,7 @@ const User = db.define('user', {
         allowNull: false,
     },
     isAdmin: {
-        type: DataTypes.BOOLEAN,
+        type?: DataTypes.BOOLEAN,
     },
 });
 
