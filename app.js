@@ -1,25 +1,37 @@
 require('dotenv').config();
-let express = require('express');
-let cors = require('cors');
-let app = express();
-let sequelize = require('./db');
-let user = require('./controllers/usercontroller');
-let fighter = require('./controllers/fightercontroller');
-let team = require('./controllers/teamcontroller');
+const Express = require('express');
+//const cors = require('cors');
+const app = Express();
+const dbConnection = require('./db');
 
-sequelize.sync(); 
-
-app.use(express.json());
-app.use(cors());
 app.use(require('./middleware/headers')); 
-app.use('/user', user);
-app.use(require('./middleware/validate-session'));
-app.options('/fighter', cors());
-app.use('/fighter', fighter);
-app.options('/team', cors());
-app.use('/team', team);
+const controllers = require('./controllers');
+app.use(Express.json());
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server is listening on port ${process.env.PORT}`)
-    console.log(process.env.DATABASE_URL)
-})
+//app.use(cors());
+
+app.use('/user', controllers.userController);
+app.use(require('./middleware/validate-session'));
+
+//app.options('/fighter', cors());
+app.use('/fighter', controllers.fighterController);
+
+//app.options('/team', cors());
+app.use('/team', controllers.teamController);
+
+dbConnection.authenticate()
+    .then(() => dbConnection.sync())
+    .then(() => {
+        app.listen(process.env.PORT, () => {
+            console.log(`[Server]: App is listening on port ${process.env.PORT}`)
+        });
+    })
+    .catch((err) => {
+        console.log(`[Server]: Server crashed. Error = ${err}`)
+    });
+
+
+// app.listen(process.env.PORT, () => {
+//     console.log(`Server is listening on port ${process.env.PORT}`)
+//     console.log(process.env.DATABASE_URL)
+// })
