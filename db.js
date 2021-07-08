@@ -10,13 +10,13 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
 process.env.DATABASE_URL   
 */
 sequelize.authenticate().then(
-    function() {   
-        console.log('Connected to testtheirmight postgres database');
-    },
-    function(err){ 
-        console.log(err);
-    }
-);
+    () => {
+        console.log('Connection has been established.');
+    })
+    .catch((err) => {
+        console.error('Unable to connect to the database:', err);
+    });
+
 console.log('hi')
 
 Fighter = require('./models/fighter')(sequelize, Sequelize);
@@ -27,5 +27,5 @@ Fighter.hasMany(Team);
 Team.hasMany(Fighter);
 
         
-module.exports = sequelize;
+module.exports = { app, sequelize };
 

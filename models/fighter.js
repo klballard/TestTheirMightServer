@@ -2,7 +2,7 @@
 const {DataTypes} = require('sequelize');
 const db = require('../db');
 
-const Fighter = db.define('fighter', {
+const Fighter = db.sequelize.define('fighter', {
     fighterName: {
         type: DataTypes.STRING,
         allowNull: false,
