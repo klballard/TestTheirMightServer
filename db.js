@@ -17,7 +17,7 @@ sequelize.authenticate().then(
         console.error('Unable to connect to the database:', err);
     });
 
-console.log('hi')
+console.log('hello from db.js')
 
 Fighter = sequelize.import('./models/fighter.js')
 Team = sequelize.import('./models/team.js');
