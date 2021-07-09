@@ -19,13 +19,13 @@ sequelize.authenticate().then(
 
 console.log('hi')
 
-Fighter = require('./models/fighter')(sequelize, Sequelize);
-Team = require('./models/team')(sequelize, Sequelize);
+Fighter = sequelize.import('./models/fighter.js')
+Team = sequelize.import('./models/team.js');
 
 Fighter.belongsTo(Team);
 Fighter.hasMany(Team);
 Team.hasMany(Fighter);
 
         
-module.exports = { app, sequelize };
+module.exports = sequelize;
 
