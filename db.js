@@ -19,8 +19,10 @@ sequelize.authenticate().then(
 
 console.log('hello from db.js')
 
-Fighter = sequelize.import('./models/fighter.js')
-Team = sequelize.import('./models/team.js');
+//Fighter = sequelize.import('./models/fighter.js')
+const Fighter = require('./models/fighter')(sequelize, Sequelize.DataTypes)
+//Team = sequelize.import('./models/team.js');
+const Team = require('./models/team')(sequelize, Sequelize.DataTypes)
 
 Fighter.belongsTo(Team);
 Fighter.hasMany(Team);
