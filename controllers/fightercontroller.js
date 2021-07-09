@@ -6,7 +6,7 @@ let sequelize = require('../db');
 const Sequelize = require('sequelize');
 let FighterModel = require('../models/fighter')(sequelize, Sequelize);
 
-/*
+/* test
 !postman test for fighter POST
 {
     "fighter":{
