@@ -44,11 +44,11 @@ router.get('/getall', validateJWT, async (req, res) => {
 //         );
 // });
 
-
+// adding comment to force heroku
 //! Save a team
 
 router.post('/saveteam', validateJWT, async (req, res) => {
-    const { teamId, teamName, fighterOne, fighterOnePL, fighterOneImg, fighterTwo, fighterTwoPL, fighterTwoImg, fighterThree, fighterThreePL, fighterThreeImg, fighterFour, fighterFourPL, fighterFourImg, fighterFive, fighterFivePL, fighterFiveImg};
+    const { teamId, teamName, fighterOne, fighterOnePL, fighterOneImg, fighterTwo, fighterTwoPL, fighterTwoImg, fighterThree, fighterThreePL, fighterThreeImg, fighterFour, fighterFourPL, fighterFourImg, fighterFive, fighterFivePL, fighterFiveImg} = req.body;
     const { id } = req.user;
     const teamCreate = {
         teamId, teamName,
