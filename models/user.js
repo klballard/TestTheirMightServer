@@ -1,8 +1,8 @@
 
-const {DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 const db = require('../db');
 
-const User = db.sequelize.define('user', {
+const User = db.define('user', {
     email:{
         type: DataTypes.STRING(100),
         allowNull: false,

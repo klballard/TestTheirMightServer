@@ -1,7 +1,7 @@
-    const {DataTypes} = require('sequelize');
+    const { DataTypes } = require('sequelize');
     const db = require('../db');
     
-    const Team = db.sequelize.define('team', {
+    const Team = db.define('team', {
         userId:{
             type: DataTypes.INTEGER,
         },

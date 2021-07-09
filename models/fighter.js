@@ -1,8 +1,8 @@
 
-const {DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 const db = require('../db');
 
-const Fighter = db.sequelize.define('fighter', {
+const Fighter = db.define('fighter', {
     fighterName: {
         type: DataTypes.STRING,
         allowNull: false,
