@@ -1,13 +1,13 @@
 const router = require("express").Router();
-const { UserModel } = require('../models');
+//const { UserModel } = require('../models/user');
 let jwt = require("jsonwebtoken");
 let bcrypt = require("bcryptjs");
 const { UniqueConstraintError } = require("sequelize/lib/errors");
-//let sequelize = require('../db');
-//const Sequelize = require('sequelize');
-//let User = require('../models/user')(sequelize, Sequelize);
+let sequelize = require('../db');
+const Sequelize = require('sequelize');
+let UserModel = require('../models/user')(sequelize, Sequelize);
 const validateJWT = require("../middleware/validate-session");
-const User = require("../models/user");
+//const User = require("../models/user");
 /*
  postman test for user creation
 {

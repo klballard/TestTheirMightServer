@@ -1,10 +1,10 @@
 let Express = require('express');
 let router = Express.Router();
 let validateJWT = require('../middleware/validate-session');
-const { FighterModel } = require('../models');
-//let sequelize = require('../db');
-//const Sequelize = require('sequelize');
-//let FighterModel = require('../models/fighter')(sequelize, Sequelize);
+//const { FighterModel } = require('../models/fighter');
+let sequelize = require('../db');
+const Sequelize = require('sequelize');
+let FighterModel = require('../models/fighter')(sequelize, Sequelize);
 
 /*
 !postman test for fighter POST

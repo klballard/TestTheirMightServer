@@ -1,11 +1,11 @@
 let Express = require('express');
 let router = Express.Router();
 let validateJWT = require('../middleware/validate-session');
-const { TeamModel } = require('../models');
-//let sequelize = require('../db');
-//const Sequelize = require('sequelize');
+//const { TeamModel } = require('../models/team');
+let sequelize = require('../db');
+const Sequelize = require('sequelize');
 //const team = require('../models/team');
-//let TeamModel = require('../models/team')(sequelize, Sequelize);
+let TeamModel = require('../models/team')(sequelize, Sequelize);
 
 
 //! Get all saved teams
