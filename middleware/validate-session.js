@@ -5,7 +5,7 @@ const { UserModel } = require('../models');
 //var User = require('../models/user')(sequelize, Sequelize);
 
 const validateJWT = async (req, res, next) => {
-    if (req.methond == "OPTIONS") {
+    if (req.method == "OPTIONS") {
         next();
     } else if (
         req.headers.authorization &&
