@@ -78,28 +78,21 @@ router.delete("/:id", function (req, res) {
 
 //! Register a User
 
-router.post("/register", async (req, res) => {
-  let { email, passwordhash } = req.body;
+router.post('/register', async (req, res) => {
+  let {email, password } = req.body.user;
   try {
-    await models.UserModel.create({
+    const User = await UserModel.create({
       email,
-      passwordhash: bcrypt.hashSync(passwordhash, 13),
+      passwordhash: bcrypt.hashSync(password, 13),
       isAdmin: false,
-    })
-    .then(
-        user => {
-            let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-                expiresIn: 60 * 60 * 24,
-              });
-          
-              res.status(201).json({
-                message: "User successfully registered",
-                user: user,
-                sessionToken: `Bearer ${token}`,
-              });
-        }
-    )
-    
+    });
+    let token = jwt.sign({id: User.id}, process.env.JWT_SECRET, {expiresIn: 60 * 60 * 24});
+
+    res.status(201).json({
+      message: "User successfully registered.",
+      user: User,
+      sessionToken: token
+    });
   } catch (err) {
     if (err instanceof UniqueConstraintError) {
       res.status(409).json({
@@ -107,11 +100,47 @@ router.post("/register", async (req, res) => {
       });
     } else {
       res.status(500).json({
-        message: "Failed to register user.",
+        message: "Failed to register user."
       });
     }
   }
 });
+
+
+// router.post("/register", async (req, res) => {
+//   let { email, passwordhash } = req.body.user;
+//   try {
+//     const User = await UserModel.create({
+//       email,
+//       passwordhash: bcrypt.hashSync(passwordhash, 13),
+//       isAdmin: false,
+//     })
+//     .then(
+//         user => {
+//             let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+//                 expiresIn: 60 * 60 * 24,
+//               });
+          
+//               res.status(201).json({
+//                 message: "User successfully registered",
+//                 user: user,
+//                 sessionToken: `Bearer ${token}`,
+//               });
+//         }
+//     )
+    
+//   } catch (err) {
+//     if (err instanceof UniqueConstraintError) {
+//       res.status(409).json({
+//         message: "Email already in use.",
+//       });
+//     } else {
+//       res.status(500).json({
+//         message: "Failed to register user.",
+//       });
+//     }
+//   }
+// });
 
 // router.post('/register', function(req,res) {
 //     User.create({
