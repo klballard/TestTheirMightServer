@@ -169,75 +169,75 @@ router.post('/register', async (req, res) => {
 
 //! Login
 
-router.post("login", async (req, res) => {
-  let { email, passwordhash } = req.body.user;
+// router.post("login", async (req, res) => {
+//   let { email, passwordhash } = req.body.user;
 
-  try {
-    await models.UserModel.findOne({
-      where: {
-        email
-      },
-    })
-    .then(
-        user => {
-            if (user) {
-                bcrypt.compare(passwordhash, user.passwordhash, (err, matches) => {
-                    if (matches) {
-                        let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {expiresIn: 60*60*24})
-                        res.json({
-                            user: user,
-                            message: 'Logged in.',
-                            sessionToken: `Bearer ${token}`
-                        })
-                    } else {
-                        res.status(502).send({
-                            error: 'Bad gateway.'
-                        })
-                    }
-                })
-            } else {
-                res.status(500).send({
-                    error: 'Failed to authenticate.'
-                })
-            }
-        }
-    )
-  } catch (err) {
-      res.status(501).send({
-          error: 'Server does not support this functionality.'
-      })
-  }
-})
-// router.post("/login", function (req, res) {
-//   User.findOne({ where: { email: req.body.user.email } }).then(
-//     function (user) {
-//       if (user) {
-//         bcrypt.compare(
-//           req.body.user.password,
-//           user.passwordhash,
-//           function (error, matches) {
-//             if (matches) {
-//               let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-//                 expiresIn: 60 * 60 * 24,
-//               });
-//               res.json({
-//                 user: user,
-//                 message: "User has been successfully authenticated",
-//                 sessionToken: token,
-//               });
+//   try {
+//     await models.UserModel.findOne({
+//       where: {
+//         email
+//       },
+//     })
+//     .then(
+//         user => {
+//             if (user) {
+//                 bcrypt.compare(passwordhash, user.passwordhash, (err, matches) => {
+//                     if (matches) {
+//                         let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {expiresIn: 60*60*24})
+//                         res.json({
+//                             user: user,
+//                             message: 'Logged in.',
+//                             sessionToken: `Bearer ${token}`
+//                         })
+//                     } else {
+//                         res.status(502).send({
+//                             error: 'Bad gateway.'
+//                         })
+//                     }
+//                 })
 //             } else {
-//               res.status(502).send({ error: "User sign in failed." });
+//                 res.status(500).send({
+//                     error: 'Failed to authenticate.'
+//                 })
 //             }
-//           }
-//         );
-//       } else {
-//         res.status(500).send({ error: "Authentication failed." });
-//       }
-//     },
-//     function (error) {
-//       res.status(501).send({ error: "User sign in failed." });
-//     }
-//   );
-// });
+//         }
+//     )
+//   } catch (err) {
+//       res.status(501).send({
+//           error: 'Server does not support this functionality.'
+//       })
+//   }
+// })
+router.post("/login", function (req, res) {
+  User.findOne({ where: { email: req.body.user.email } }).then(
+    function (user) {
+      if (user) {
+        bcrypt.compare(
+          req.body.user.password,
+          user.passwordhash,
+          function (error, matches) {
+            if (matches) {
+              let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+                expiresIn: 60 * 60 * 24,
+              });
+              res.json({
+                user: user,
+                message: "User has been successfully authenticated",
+                sessionToken: token,
+              });
+            } else {
+              res.status(502).send({ error: "User sign in failed." });
+            }
+          }
+        );
+      } else {
+        res.status(500).send({ error: "Authentication failed." });
+      }
+    },
+    function (error) {
+      res.status(501).send({ error: "User sign in failed." });
+    }
+  );
+});
 
 module.exports = router;
