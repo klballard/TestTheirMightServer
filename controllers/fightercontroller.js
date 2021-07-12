@@ -25,38 +25,38 @@ let FighterModel = require('../models/fighter')(sequelize, Sequelize);
 
 //! Get all saved fighters
 
-router.get('/getall', validateJWT, async (req, res) => {
-    let { id } = req.user;
-    try {
-        const fighterRoster = await FighterModel.findAll({
-            where: {
-                owner: id
-            }
-        });
-        res.status(200).json(fighterRoster);
-    } catch (err) {
-        res.status(500).json({ error: err });
-    }
-});
-
-// router.get('/getall', function (req, res) {
-//     var userId = req.user.id;
-
-//     console.log('Getting all saved fighters for the signed in user.')
-
-//     FighterModel
-//         .findAll({
-//             where: { userId: userId }
-//         })
-//         .then(
-//             function findAllSuccess(data) {
-//                 res.json(data);
-//             },
-//             function findAllError(err) {
-//                 res.send(500, err.message);
+// router.get('/getall', validateJWT, async (req, res) => {
+//     let { id } = req.user;
+//     try {
+//         const fighterRoster = await FighterModel.findAll({
+//             where: {
+//                 owner: id
 //             }
-//         );
+//         });
+//         res.status(200).json(fighterRoster);
+//     } catch (err) {
+//         res.status(500).json({ error: err });
+//     }
 // });
+
+router.get('/getall', function (req, res) {
+    var userId = req.user.id;
+
+    console.log('Getting all saved fighters for the signed in user.')
+
+    FighterModel
+        .findAll({
+            where: { userId: userId }
+        })
+        .then(
+            function findAllSuccess(data) {
+                res.json(data);
+            },
+            function findAllError(err) {
+                res.send(500, err.message);
+            }
+        );
+});
 
 
 //! Get a single fighter
