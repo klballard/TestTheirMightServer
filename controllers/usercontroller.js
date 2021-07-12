@@ -79,7 +79,7 @@ router.delete("/:id", function (req, res) {
 //! Register a User
 
 router.post("/register", async (req, res) => {
-  let { email, passwordhash } = req.body.user;
+  let { email, passwordhash } = req.body;
   try {
     await models.UserModel.create({
       email,
